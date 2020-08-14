@@ -1,0 +1,72 @@
+<div class="title-group">
+  <h1 class="mat-h1">Add Student-Information</h1>
+  <mat-divider fxFlex="1 0"></mat-divider>
+</div>
+  <!-- <div class="example-loading-shade"
+        *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div> -->
+   
+  <mat-card class="example-card">
+    <form [formGroup]="studentForm" (ngSubmit)="updateStudentForm()">
+      
+      <!-- <mat-form-field class="example-full-width">
+        <mat-label>Select PDF</mat-label>
+        <ngx-mat-file-input formControlName="pdfFile" placeholder="Select pdf File" valuePlaceholder="No file selected"
+          [errorStateMatcher]="matcher"></ngx-mat-file-input>
+        <mat-icon matSuffix>folder</mat-icon>
+        <mat-error>
+          <span *ngIf="!studentForm.get('pdfFile').valid">Please select pdf file</span>
+        </mat-error>
+      </mat-form-field> -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Name" formControlName="name"
+          [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!studentForm.get('name').valid && studentForm.get('name').touched">Please enter  Name</span>
+        </mat-error>
+      </mat-form-field>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email" formControlName="email"
+          [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!studentForm.get('email').valid && studentForm.get('email').touched">Please enter Email</span>
+        </mat-error>
+      </mat-form-field>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      
+      <mat-form-field class="example-full-width">
+        <mat-label>Phone</mat-label>
+        <input matInput placeholder="Phone" (keypress)="special_char($event)" formControlName="phone"
+          [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!studentForm.get('phone').valid && studentForm.get('phone').touched">Please enter Phone</span>
+        </mat-error>
+      </mat-form-field>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <div class="col-md-3">
+      <mat-form-field class="example-full-width">
+        <mat-label>Address</mat-label>
+        <input matInput placeholder="Address" formControlName="address"
+          [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!studentForm.get('address').valid && studentForm.get('address').touched">Please enter Address</span>
+        </mat-error>
+      </mat-form-field>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     
+      </div>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <div class="col-md-3">
+      <div class="button-row">
+        <button type="submit" mat-flat-button center color="primary">Submit</button>
+      </div>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </div>
+      
+    </form>
+  </mat-card>
+
